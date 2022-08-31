@@ -1,2 +1,3 @@
-# Classwork
-Repository for my classwork for BME 547
+# Patient Health Database
+
+Author: Hunter Bernier
