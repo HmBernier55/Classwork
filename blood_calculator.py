@@ -20,5 +20,13 @@ def check_HDL(HDL_result):
     else:
         return "Low"    
     
+def HDL_driver():
+    HDL_value = input_HDL()
+    answer = check_HDL(HDL_value)
+    output_HDL_result(HDL_value, answer)
+
+def output_HDL_result(HDL_value, charac):
+    print("The results for an HDL value of {} is {}".format(HDL_value, charac))
+
 
 interface()
