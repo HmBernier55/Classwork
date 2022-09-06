@@ -35,4 +35,19 @@ def output_HDL_result(HDL_value, charac):
     print("The results for an HDL value of {} is {}".format(HDL_value, charac))
 
 
+
+def input_LDL():
+    LDL_input = input("Enter the LDL value: ")
+    return int(LDL_input)
+
+def check_LDL(LDL_result):
+    if LDL_result < 130:
+        return "Normal"
+    elif 130 <= LDL_result <= 159:
+        return "Borderline High"
+    elif 160 <= LDL_result <= 189:
+        return "High"
+    else:
+        return "Very High"    
+
 interface()
