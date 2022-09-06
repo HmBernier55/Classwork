@@ -62,4 +62,17 @@ def output_LDL_result(LDL_value, charac):
     print("The results for an LDL value of {} is {}".format(LDL_value, charac))
 
 
+
+def input_chol():
+    Chol_input = input("Enter the total cholesterol value: ")
+    return int(Chol_input)
+
+def check_Chol(Chol_result):
+    if Chol_result < 200:
+        return "Normal"
+    elif 200 <= Chol_result <= 239:
+        return "Borderline High"
+    else:
+        return "High"
+
 interface()
