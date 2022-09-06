@@ -75,4 +75,12 @@ def check_Chol(Chol_result):
     else:
         return "High"
 
+def Chol_driver():
+    Chol_value = input_chol()
+    answer = check_Chol(Chol_value)
+    output_Chol_result(Chol_value, answer)
+
+def output_Chol_result(Chol_value, charac):
+    print("The results for a Total Cholesterol value of {} is {}".format(Chol_value, charac))
+    
 interface()
