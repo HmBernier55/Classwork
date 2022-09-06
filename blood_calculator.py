@@ -48,6 +48,15 @@ def check_LDL(LDL_result):
     elif 160 <= LDL_result <= 189:
         return "High"
     else:
-        return "Very High"    
+        return "Very High"      
+    
+def LDL_driver():
+    LDL_value = input_LDL()
+    answer = check_LDL(LDL_value)
+    output_LDL_result(LDL_value, answer)
+
+def output_LDL_result(LDL_value, charac):
+    print("The results for an LDL value of {} is {}".format(LDL_value, charac))
+
 
 interface()
