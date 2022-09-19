@@ -82,5 +82,6 @@ def Chol_driver():
 
 def output_Chol_result(Chol_value, charac):
     print("The results for a Total Cholesterol value of {} is {}".format(Chol_value, charac))
-    
-interface()
+
+if __name__ == "__main__": 
+    interface()
