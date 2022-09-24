@@ -17,9 +17,11 @@ def interface():
         elif choice == "3":
             Chol_driver()
 
+
 def input_HDL():
     HDL_input = input("Enter the HDL value: ")
     return int(HDL_input)
+
 
 def check_HDL(HDL_result):
     if HDL_result >= 60:
@@ -27,21 +29,23 @@ def check_HDL(HDL_result):
     elif 40 <= HDL_result < 60:
         return "Borderline Low"
     else:
-        return "Low"    
-    
+        return "Low"
+
+
 def HDL_driver():
     HDL_value = input_HDL()
     answer = check_HDL(HDL_value)
     output_HDL_result(HDL_value, answer)
 
+
 def output_HDL_result(HDL_value, charac):
     print("The results for an HDL value of {} is {}".format(HDL_value, charac))
-
 
 
 def input_LDL():
     LDL_input = input("Enter the LDL value: ")
     return int(LDL_input)
+
 
 def check_LDL(LDL_result):
     if LDL_result < 130:
@@ -51,21 +55,23 @@ def check_LDL(LDL_result):
     elif 160 <= LDL_result <= 189:
         return "High"
     else:
-        return "Very High"      
-    
+        return "Very High"
+
+
 def LDL_driver():
     LDL_value = input_LDL()
     answer = check_LDL(LDL_value)
     output_LDL_result(LDL_value, answer)
 
+
 def output_LDL_result(LDL_value, charac):
     print("The results for an LDL value of {} is {}".format(LDL_value, charac))
-
 
 
 def input_chol():
     Chol_input = input("Enter the total cholesterol value: ")
     return int(Chol_input)
+
 
 def check_Chol(Chol_result):
     if Chol_result < 200:
@@ -75,13 +81,17 @@ def check_Chol(Chol_result):
     else:
         return "High"
 
+
 def Chol_driver():
     Chol_value = input_chol()
     answer = check_Chol(Chol_value)
     output_Chol_result(Chol_value, answer)
 
-def output_Chol_result(Chol_value, charac):
-    print("The results for a Total Cholesterol value of {} is {}".format(Chol_value, charac))
 
-if __name__ == "__main__": 
+def output_Chol_result(Chol_value, charac):
+    print("The results for a Total Cholesterol value of {} is {}"
+          .format(Chol_value, charac))
+
+
+if __name__ == "__main__":
     interface()

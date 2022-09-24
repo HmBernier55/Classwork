@@ -10,13 +10,13 @@ import pytest
     ("22 pound", 10),
     ("22 lb, 50 kg", None),
     ("22", None)
-    #("ten lb", 10)
+    # ("ten lb", 10)
     ])
-
 def test_parse_weight_input(input, expected):
     from weight_entry import parse_weight_input
     answer = parse_weight_input(input)
     assert answer == expected
+
 
 @pytest.mark.parametrize("a, b, expected", [
     (1, 2, 3),
@@ -25,4 +25,5 @@ def test_parse_weight_input(input, expected):
 def test_add(a, b, expected):
     from weight_entry import add
     answer = add(a, b)
-    assert answer == pytest.approx(expected) # can change tolerance of approximation
+    assert answer == pytest.approx(expected)
+    # can change tolerance of approximation
