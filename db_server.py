@@ -22,9 +22,13 @@ or
 
 db = []
 
+
 from flask import Flask, request, jsonify
+import logging
+
 
 app = Flask(__name__)
+
 
 @app.route("/", methods=["GET"])
 def server_on():
@@ -44,6 +48,7 @@ def init_server():
     add_patient("Ann Ables", 1, "A+")
     add_patient("Bob Boyles", 2, "B+")
     # initialize logging
+    logging.basicConfig(filename="server.log")
 
 
 @app.route("/new_patient", methods=["POST"])
@@ -80,6 +85,45 @@ def validate_new_patient_info(in_data):
         if type(in_data[key]) is not ex_type:
             return "Key {}'s value has the wrong data type".format(key)
     return True
+
+
+@app.route("/add_test", methods=["POST"])
+def add_test_flask_handler():
+    in_data = request.get_json()
+    msg, status_code = add_test_worker(in_data)
+    return msg, status_code
+
+
+def add_test_worker(in_data):
+    msg = add_test_validation(in_data)
+    if msg is not True:
+        return msg, 400
+    add_test_to_patient(in_data)
+    return "Test added", 200
+
+
+def add_test_validation(in_data):
+    expected_keys = ["id", "test_name", "test_result"]
+    expected_types = [int, str, int]
+    for ex_key, ex_type in zip(expected_keys, expected_types):
+        if type(in_data[ex_key]) is not ex_type:
+            return "Bad value type"
+        if ex_key not in in_data:
+            return "Key missing"
+    return True
+
+
+def find_patient(patient_id):
+    for patient in db:
+        if patient["id"] == patient_id:
+            return patient
+    return False
+
+
+def add_test_to_patient(in_data):
+    patient = find_patient(in_data["id"])
+    patient["test_name"].append(in_data["test_name"])
+    patient["test_results"].append(in_data["test_result"])
 
 
 if __name__ == '__main__':
